@@ -1,0 +1,197 @@
+---
+title: "Data Storytelling Basics"
+output: html_notebook
+---
+
+http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html
+
+1. Declutter your graph
+2. Highlight your important data
+3. Annotate your findings
+
+# Intro to R Markdown Notebooks
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. You can also use the green "play" button on the top right of the chunk. 
+
+```{r}
+
+```
+
+# Data Storytelling
+
+
+
+# Let's look at the basic dataset first
+
+```{r}
+load("data/crime_data_stat.rda")
+
+DT::datatable(crime_data_stat)
+```
+
+## Summarizing the data
+
+```{r}
+skimr::skim(crime_data_stat)
+```
+
+# Part 1: Your Basic Plot
+
+We're going to start working with a basic visualization.
+
+```{r}
+library(ggplot2)
+
+ggplot(crime_data_stat) + aes(x = crime_yearmonth, y= count, group=offense_category, color = offense_category) + geom_line()
+
+```
+
+Before you move on, discuss with your partner:
+
+1) What variable is mapped to the x axis? What is the name of that variable?
+3) What crimes are represented in the data?
+
+# Part 2: Working with Color
+
+## Highlighting part of your data
+
+
+Before you move on, discuss:
+
+1) What is your finding?
+2) What part/group of the data were you emphasizing?
+3) What colors did you use?
+
+
+```{r}
+#put your final plot here
+library(tidyverse)
+
+crime_data_stat %>% 
+  mutate(motor_theft = ifelse(offense_category == "Motor Vehicle Theft", "Y", "N")) %>% 
+  ggplot(aes(x = crime_yearmonth, y= count, group=offense_category, color = motor_theft)) + 
+   geom_line() + scale_color_manual(values=c("Y"="blue", "N"="grey"))
+```
+
+# Part 3: Simplifying your plot
+
+Before you move on, discuss:
+
+1) What parts of the plot were distracting?
+2) How did you remove them?
+
+```{r}
+crime_data_stat %>% 
+  mutate(motor_theft = 
+           ifelse(offense_category == 
+                    "Motor Vehicle Theft", "Y", "N")) %>% 
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, color = motor_theft)) + 
+   geom_line() + 
+  scale_color_manual(values=c("Y"="blue", "N"="grey")) +
+  theme(legend.position = "none")
+
+```
+
+# Part 3: Simplifying your plot
+
+Before you move on, discuss:
+
+1) What parts of the plot were distracting?
+2) How did you remove them?
+
+```{r}
+crime_data_stat %>% 
+  mutate(motor_theft = 
+           ifelse(offense_category == 
+                    "Motor Vehicle Theft", "Y", "N")) %>% 
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, color = motor_theft)) + 
+   geom_line() + 
+  scale_color_manual(values=c("Y"="black", "N"="lightgrey")) +
+  theme(legend.position = "none")
+```
+
+# Part 4: Annotating
+
+Before you move on, discuss: 
+
+```{r}
+crime_data_stat %>% 
+  mutate(motor_theft = 
+           ifelse(offense_category == 
+                    "Motor Vehicle Theft", "Y", "N")) %>% 
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, color = motor_theft)) + 
+   geom_line() + 
+  scale_color_manual(values=c("Y"="blue", "N"="darkgrey")) +
+  theme_minimal() + 
+  theme(legend.position = "none") +
+  labs(title = "Auto Crimes are Levelling Off Compared to Other Crimes",x="Year", y="Number of Crimes")
+```
+
+```{r}
+crime_stat %>%  
+  ungroup(offense_category) %>%
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, fill = motor_theft)) + 
+   geom_bar(stat = "identity", color="black") + 
+  scale_fill_manual(values=c("Y"="blue", "N"="grey")) +
+  theme_minimal() + 
+  theme(legend.position = "none") +
+  labs(title = "Auto Crimes are Levelling Off\n Compared to Other Crimes",x="Year", y="Number of Crimes") +
+  annotate("text", x = as.Date("2016-03-01"), y=600, label="Mean\n Crime") + 
+  geom_hline(yintercept = mean_c, lty=3)
+
+```
+
+```{r}
+crime_stat %>%  
+  ungroup(offense_category) %>%
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, color = motor_theft)) + 
+   geom_line() + 
+  scale_color_manual(values=c("Y"="darkorange", "N"="grey")) +
+  theme_minimal() + 
+  theme(panel.grid = element_blank()) +
+  theme(legend.position = "none") +
+  labs(title = "Auto Crimes are Levelling Off\n Compared to Other Crimes",x="Year", y="Number of Crimes") +
+  annotate("text", x = as.Date("2018-03-01"), y=600, label="Mean\n Crime") + 
+  geom_hline(yintercept = mean_c, lty=3)
+
+```
+
+```{r}
+library(plotly)
+
+crime_stat <- crime_data_stat %>% 
+  mutate(motor_theft = 
+           ifelse(offense_category == 
+                    "Motor Vehicle Theft", "Y", "N"),
+         mean_count=mean(count)) 
+
+mean_c <- crime_stat$mean_count[1]
+
+my_plot <- crime_stat %>%  
+  ungroup(offense_category) %>%
+  ggplot(aes(x = crime_yearmonth, y= count, 
+             group=offense_category, color = motor_theft)) + 
+   geom_line() + 
+  scale_color_manual(values=c("Y"="blue", "N"="grey")) +
+  theme_minimal() +
+  theme(panel.grid = element_blank()) +
+  theme(legend.position = "none") +
+  labs(title = "Auto Crimes are Levelling Off\n Compared to Other Crimes",x="Year/Month", y="Number of Crimes") +
+  annotate("text", x = as.Date("2016-03-01"), y=600, label="Mean\n Crime") + 
+  geom_hline(yintercept = mean_c, lty=3)
+
+ggplotly(my_plot)
+```
+
+# Saving High Quality Plots
+
+# Finishing up
+
+Try
