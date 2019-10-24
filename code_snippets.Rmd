@@ -87,11 +87,11 @@ Removing Both Axis Labels:
 + theme(axis.text = element_blank())
 ```
 
-Removing the x-axis:
+Removing the x-axis or y-axis labels:
 
 ```
 + theme(axis.text.x = element_blank())
-
++ theme(axis.text.y = element_blank())
 ```
 
 Remove the grid lines:
