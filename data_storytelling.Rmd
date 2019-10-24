@@ -344,7 +344,7 @@ my_new_plot +
 
 Cut and paste all your modifiers and make your final figure below!
 
-```{r}
+```{r eval=FALSE}
 my_new_plot +
   
 ```
