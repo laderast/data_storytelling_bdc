@@ -5,6 +5,15 @@ output:
     df_print: paged
 ---
 
+If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+source(here("R/init.R"))
+```
+
+
 # Part 3: Annotating
 
 Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure.
@@ -17,11 +26,13 @@ Before you move on, discuss:
 
 # Changing Titles
 
-There is a function called `labs()` that will let you change the titles for a graph.
+There is a function called `labs()` that will let you change the titles for a graph. Figure out where these titles are added to the graph below.
 
 ```{r}
 my_plot +
-  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating")
+  labs(title = "Is it better to burn out than fade away?",
+       x="Season Number", 
+       y="Average Rating")
 ```
 
 ## Adding a Reference Line
@@ -31,6 +42,13 @@ Using `geom_hline()` to show the average value across a time period can provide 
 ```{r}
 my_plot + 
   geom_hline(yintercept = 7.8, lty=3)
+```
+
+We can add a vertical reference line instead using `geom_vline()`:
+
+```{r}
+my_plot + 
+  geom_vline(xintercept = 5, lty=3)
 ```
 
 ## Adding text annotations

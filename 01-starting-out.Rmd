@@ -44,12 +44,26 @@ DT::datatable(tv_shows)
 
 We're going to start working with a basic visualization. A ggplot has the following recipe:
 
+```
+A dataset +
+A mapping of visual aesthetics to variables +
+A geom(metry)
+```
+Remember, we use `+` to add elements to a ggplot.
+
 ```{r}
 library(ggplot2)
 
-ggplot(tv_shows) + 
-  aes(x = seasonNumber, y= av_rating, group=title, 
+#A Dataset
+ggplot(tv_shows) +
+
+#A mapping of visual aesthetics to variables
+  aes(x = seasonNumber, 
+      y = av_rating, 
+      group = title, 
       color = title) + 
+
+#A geometry
   geom_line()
 ```
 
@@ -61,17 +75,19 @@ Before you move on, discuss with your partner:
 
 While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data.
 
-Let's save our plot into an R object called a ggplot. We'll use the `<-` to assign it to the variable called `my_plot`:
+Let's save our plot into an R object called a ggplot. We'll use the `<-` (left arrow) to assign it to the variable called `my_plot`:
 
 ```{r}
 my_plot <- 
-  ggplot(tv_shows) + 
-    aes(x = seasonNumber, y= av_rating, group=title, 
+  ggplot(tv_shows) +
+  aes(x = seasonNumber, 
+      y = av_rating, 
+      group = title, 
       color = title) + 
-    geom_line()
+  geom_line()
 ```
 
-Now, when we want to modify our plot, we can use `my_plot`. More on this in the next notebook.
+Now, when we want to modify our plot, we can use `my_plot`. More on this in the next notebook. We're basically going to add commands to modify our plot. I like to think of it as a `paper doll` approach: we are dressing our plot in different clothes.
 
 ```{r}
 my_plot

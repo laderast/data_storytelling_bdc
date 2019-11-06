@@ -5,11 +5,19 @@ output:
     df_print: paged
 ---
 
+If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+source(here("R/init.R"))
+```
+
 # Part 4: Working with Color/Contrast
 
-Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we conscious process the content of a graph.
+Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we consciously process the content of a graph.
 
-You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image?
+You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image? How hard would it be if the 3s weren't distinct from the other digits?
 
 ```{r}
 knitr::include_graphics("image/threes.png")
@@ -17,15 +25,17 @@ knitr::include_graphics("image/threes.png")
 
 ## Changing the base plot (slightly)
 
-Remember our original plot mapped color to `title`. There's also a variable called `status` in our data. `status` has two different values: a tv show can be a `riser` (positive trend in ratings), or be a `faller`.
+Remember our original plot mapped color to `title`. There's also a variable called `status` in our data. `status` has two different values: a tv show can be a `riser` (positive trend in ratings), or be a `faller` (negative trend in ratings).
 
 Let's modify the plot to use this variable to `color` our lines:
 
 ```{r}
 my_plot <- 
   ggplot(tv_shows) + 
-    aes(x = seasonNumber, y= av_rating, group=title, 
-      color = status) + 
+    aes(x = seasonNumber, 
+        y= av_rating, 
+        group=title, 
+        color = status) + 
     geom_line()
 
 my_plot
@@ -33,7 +43,7 @@ my_plot
 
 ## Highlighting part of your data
 
-What if we only want to highlight one group in the data? In this case, we want to highlight the *risers* in our dataset. If we color them blue, and leave the others as `grey` we can immediately highlight them as important and worth noticing in the context of the other data.
+What if we only want to highlight one group in the data? In this case, maybe we want to highlight the *risers* in our dataset. If we color them blue, and leave the others as `grey` we can immediately highlight them as important and worth noticing in the context of the other data.
 
 We can actually manually color our traces by using `scale_color_manual()`. This lets us manually map our values in our variable (`riser` and `faller`) to colors: (`blue` and `grey`).
 
@@ -108,6 +118,8 @@ Now we have our new variable called `comedy`, we need to map the `Y` and `N` val
 
 Try using different colors to contrast the `motor_theft` line. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
 
+If you want to see all the color names in R, you can run the code block below.
+
 ```{r}
 colors()
 ```
@@ -165,33 +177,11 @@ ggplot(tv_shows) +
   scale_x_continuous(breaks=c(1:10))
 ```
 
-What if we wanted to show only the "Motor Vehicle Theft" category in blue? Then we can add an additional `filter()` statement in our subset:
-
-```{r fig.width = 5, fig.height=5}
-crime_subset <- crime_stat %>%
-  filter(crime_yearmonth >= "2017-01-01") %>%
-  filter(crime_yearmonth <= "2018-01-01") %>%
-  filter(offense_category == 
-                    "Motor Vehicle Theft")
-
-  crime_stat %>% ggplot(aes(x = crime_yearmonth, y= count, group=offense_category)) + 
-   geom_line(color = "grey") +
-   geom_line(data = crime_subset, color = "blue") +
-  geom_vline(xintercept = as.Date("2017-01-01"), color="blue", lty=3) +
-  geom_vline(xintercept = as.Date("2018-01-01"), color="blue", lty=3) +
-  annotate("text", x=as.Date("2017-06-01"), y= 1200, label= "Time period\n of Interest") +
-  labs(title = "Crimes in 2017-2018 are flat") +
-  theme_minimal() +
-    theme(axis.title.x = element_blank()) +
-  theme(panel.grid = element_blank()) 
-
-```
-
 # Saving High Quality Plots
 
-We can use `ggsave()` to save our plot.
+We can use `ggsave()` to save our plot. By default, it will save the last plot we made. 
 
 ```{r eval=FALSE}
-ggsave("timeplot.pdf")
+ggsave("movieplot.pdf")
 ```
 

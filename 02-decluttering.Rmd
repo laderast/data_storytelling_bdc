@@ -1,9 +1,17 @@
 ---
-title: "Data Storytelling 1 - Decluttering"
+title: "Data Storytelling 2 - Decluttering"
 output:
   html_document:
     df_print: paged
 ---
+If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+source(here("R/init.R"))
+```
+
 # Learning Objectives
 
 - Understand why we need to declutter
