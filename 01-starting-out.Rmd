@@ -1,0 +1,80 @@
+---
+title: "Data Storytelling 1 - Starting Out"
+output:
+  html_document:
+    df_print: paged
+---
+# Learning Objectives
+
+- Learn about the `tv_shows` dataset
+- Review `ggplot2` syntax
+- Look at a simple visualization that we're going to improve
+
+# Data Storytelling
+
+Two kinds of modes for visualization:
+
+- Exploratory
+  - What is there in the data? 
+  - Often try lots of them
+- Explanatory
+  - I found this, and this is why it's important
+
+# How can we data storytell?
+
+- Communicate clearly with your figure
+- Making your point more obvious
+- Reducing cognitive load
+
+# Let's look at the basic dataset first
+
+We're going to look at a dataset about tv shows that was collected from ImDb (The internet movie database).
+
+Run the code chunk below to load the data in and look at a table of the data.
+
+```{r}
+library(tidyverse)
+library(here)
+
+tv_shows <- read.csv(here("data/tv_shows.csv"))
+DT::datatable(tv_shows)
+```
+
+# Part 1: Your Basic Plot
+
+We're going to start working with a basic visualization. A ggplot has the following recipe:
+
+```{r}
+library(ggplot2)
+
+ggplot(tv_shows) + 
+  aes(x = seasonNumber, y= av_rating, group=title, 
+      color = title) + 
+  geom_line()
+```
+
+Before you move on, discuss with your partner:
+
+1) What variable is mapped to the x axis? What is the name of that variable?
+2) What variable is mapped to color?
+3) What tv-shows are represented in the data?
+
+While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data.
+
+Let's save our plot into an R object called a ggplot. We'll use the `<-` to assign it to the variable called `my_plot`:
+
+```{r}
+my_plot <- 
+  ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title, 
+      color = title) + 
+    geom_line()
+```
+
+Now, when we want to modify our plot, we can use `my_plot`. More on this in the next notebook.
+
+```{r}
+my_plot
+```
+
+

@@ -1,0 +1,197 @@
+---
+title: "Data Storytelling 4 - Highlighting"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Part 4: Working with Color/Contrast
+
+Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we conscious process the content of a graph.
+
+You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image?
+
+```{r}
+knitr::include_graphics("image/threes.png")
+```
+
+## Changing the base plot (slightly)
+
+Remember our original plot mapped color to `title`. There's also a variable called `status` in our data. `status` has two different values: a tv show can be a `riser` (positive trend in ratings), or be a `faller`.
+
+Let's modify the plot to use this variable to `color` our lines:
+
+```{r}
+my_plot <- 
+  ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title, 
+      color = status) + 
+    geom_line()
+
+my_plot
+```
+
+## Highlighting part of your data
+
+What if we only want to highlight one group in the data? In this case, we want to highlight the *risers* in our dataset. If we color them blue, and leave the others as `grey` we can immediately highlight them as important and worth noticing in the context of the other data.
+
+We can actually manually color our traces by using `scale_color_manual()`. This lets us manually map our values in our variable (`riser` and `faller`) to colors: (`blue` and `grey`).
+
+```{r}
+my_plot + 
+  scale_color_manual(values=c("riser"="blue",
+                              "faller"="grey")) +
+  theme_minimal()
+```
+
+## Putting it all together
+
+For `my_plot`, try to recreate the following graph:
+
+```{r}
+my_plot +
+  
+```
+
+## Optional: Making a Dummy Variable to color specific lines
+
+We can manually color a single group in our data through a two step process. For example, if we want to highlight "Motor Vehicle Theft" but not the others we can:
+
+1. make a "dummy" variable called `drama` by recoding the `genre` variable to have `Y` when this variable has "Drama" in it, and `N` for the other categories.
+
+2. manually color the lines using `scale_color_manual()` by specifying a `values()` argument.
+
+In order to make our new variable, we will use a command called `mutate()` to search for "Drama" in the `genre` variable.
+
+
+### Using a dummy variable in our dataset
+
+We can add a new variable using what is called a `mutate()` function. It lets us calculate a new variable, based on the other values of the variable. If you've used Excel's `IF()` function, it's very similar in terms of the syntax. We first provide a condition:
+
+```
+ifelse(offense_category == "Motor Vehicle Theft", 
+                  yes = "Y", no = "N")
+```
+
+The `ifelse()` function can be read:
+
+> If the value for `offense_category` is "Motor Vehicle Theft" THEN recode that value as "Y",
+> If it doesn't equal "Motor Vehicle Theft", THEN recode that value as "N"
+
+Run the code below and explore the table a little bit to confirm that "Motor Vehicle Theft" crimes are coded as `Y` in our new variable, `motor_theft`:
+
+```{r}
+tv_shows <- tv_shows %>% mutate(comedy = str_detect(genres, "Comedy")) 
+
+tv_shows
+```
+
+Now we can use `scale_color_manual()` to remap the `TRUE` and `FALSE` values.
+
+## Using `scale_color_manual()` to color our new variable
+
+Now we have our new variable called `comedy`, we need to map the `Y` and `N` values to actual colors. We can do this by using the `scale_color_manual()` function, which lets us map values to specific colors by using the `values` argument.
+
+```{r}
+    ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title, 
+      color = comedy) + 
+    geom_line() + 
+  scale_color_manual(values=c("TRUE"="blue", 
+                             "FALSE" = "grey")) +
+    scale_x_continuous(breaks=c(1:10))
+
+```
+
+
+### Try out mapping colors
+
+Try using different colors to contrast the `motor_theft` line. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
+
+```{r}
+colors()
+```
+
+
+```{r}
+library(tidyverse)
+
+my_new_plot <- ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title, 
+      color = comedy) + 
+    geom_line()
+
+my_new_plot + 
+  scale_color_manual(values=c("TRUE"="blue", "FALSE"="grey"))
+```
+
+
+## Put it all together!
+
+Cut and paste all your modifiers and make your final figure below!
+
+```{r eval=FALSE}
+my_new_plot +
+  
+```
+
+
+## Optional: Highlighting a subset of the data
+
+What if we wanted to highlight a specific time period in our dataset? We can actually subset the data. 
+
+We want to specify this criteria in our `filter()` statement:
+
+```{r}
+tv_subset <- tv_shows %>%
+  filter(seasonNumber > 2) %>%
+  filter(seasonNumber < 6)
+```
+
+Now we can use this dataset to highlight this portion of the data:
+
+```{r}
+
+ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title) + 
+    geom_line(color = "grey") +
+  #color the subset - notice that 
+  geom_line(data = tv_subset, color = "blue") +
+  geom_vline(xintercept = 3, lty=3) +
+  geom_vline(xintercept = 5, lty=3) +
+  annotate("text", x=4, y=7, label="This is a critical\ntime period") +
+  labs(title = "Seasons 3 to 5 are Critical") + 
+  theme_minimal() + 
+  scale_x_continuous(breaks=c(1:10))
+```
+
+What if we wanted to show only the "Motor Vehicle Theft" category in blue? Then we can add an additional `filter()` statement in our subset:
+
+```{r fig.width = 5, fig.height=5}
+crime_subset <- crime_stat %>%
+  filter(crime_yearmonth >= "2017-01-01") %>%
+  filter(crime_yearmonth <= "2018-01-01") %>%
+  filter(offense_category == 
+                    "Motor Vehicle Theft")
+
+  crime_stat %>% ggplot(aes(x = crime_yearmonth, y= count, group=offense_category)) + 
+   geom_line(color = "grey") +
+   geom_line(data = crime_subset, color = "blue") +
+  geom_vline(xintercept = as.Date("2017-01-01"), color="blue", lty=3) +
+  geom_vline(xintercept = as.Date("2018-01-01"), color="blue", lty=3) +
+  annotate("text", x=as.Date("2017-06-01"), y= 1200, label= "Time period\n of Interest") +
+  labs(title = "Crimes in 2017-2018 are flat") +
+  theme_minimal() +
+    theme(axis.title.x = element_blank()) +
+  theme(panel.grid = element_blank()) 
+
+```
+
+# Saving High Quality Plots
+
+We can use `ggsave()` to save our plot.
+
+```{r eval=FALSE}
+ggsave("timeplot.pdf")
+```
+

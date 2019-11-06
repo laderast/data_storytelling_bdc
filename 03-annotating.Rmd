@@ -1,0 +1,63 @@
+---
+title: "Data Storytelling 3 - Annotating"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Part 3: Annotating
+
+Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure.
+
+1) Changing Titles and Axis Titles using `labs()`
+2) Adding reference lines using `geom_hline()` and `geom_vline()`
+3) Annotating the plot directly using `annotate()`
+
+Before you move on, discuss: 
+
+# Changing Titles
+
+There is a function called `labs()` that will let you change the titles for a graph.
+
+```{r}
+my_plot +
+  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating")
+```
+
+## Adding a Reference Line
+
+Using `geom_hline()` to show the average value across a time period can provide a useful reference for viewers:
+
+```{r}
+my_plot + 
+  geom_hline(yintercept = 7.8, lty=3)
+```
+
+## Adding text annotations
+
+Adding text annotations directly to the graph can be extremely helpful, especially if there is a point of interest you want users to look at. (For adding text information per data point, look at `geom_text()` and `geom_repel()` from the `ggrepel` package).
+
+The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n`.
+
+Try adjusting the `y` argument for `annotate()` to get the annotation more centered around the mean line. 
+
+```{r}
+my_plot + 
+  geom_hline(yintercept = 7.8, lty=3) +
+  annotate("text", x = 2, y=10, label="Mean\n Rating") 
+```
+
+### Part 3: Your Turn
+
+Experiment with the following modifications to the graph. If you have time, cut and paste the modifications you decided on in part 2 to your graph.
+
+If there's a show that you want to highlight, try adding an annotation to highlight it. Or try adding an annotation at `Roseanne`'s lowest rating!
+
+```{r}
+my_plot + 
+  geom_hline(yintercept = 8, lty=3) +
+  geom_vline(xintercept = 5, lty=3) +
+  annotate("text", x = 2, y=8, label="Mean\n Rating") +
+  annotate("text", x = 7, y=8.5, label = "The Walking\n Dead (ugh)") +
+  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating")
+```
