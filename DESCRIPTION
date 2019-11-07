@@ -1,0 +1,29 @@
+Type: Compendium
+Package: Data Storytelling
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Data Storytelling with R workshop for BioData
+    Club
+License: What license it uses
+Depends: 
+    broom,
+    devtools,
+    DT,
+    ggplot2,
+    here,
+    knitr,
+    plotly,
+    readr,
+    rmarkdown,
+    roxygen2,
+    tidyverse
+Remotes: 
+    rstudio/rmarkdown
+Encoding: UTF-8
+LazyData: true
