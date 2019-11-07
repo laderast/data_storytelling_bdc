@@ -64,7 +64,7 @@ We can customize our plot even further by adding a `theme()` function to the end
 
 How will we remove these elements? We will specify an element called `element_blank()` to these arguments. What is this? Think of it as a special placeholder that says we don't want to see this element.
 
-Let's try simplifying our plot by removing the x-axis text. By context, the label `crime_yearmonth` isn't that helpful.
+Let's try simplifying our plot by removing the x-axis text. By context, the label `seasonNumber` isn't that helpful.
 
 ```{r}
 my_plot + 
@@ -96,5 +96,22 @@ my_plot +
   theme(axis.title.x = element_blank()) + 
   theme(panel.grid = element_blank()) + 
   theme(legend.position = "none")
+```
+
+## For more information
+
+Take a look at the ggthemes gallery for other pre-made themes that can help you declutter your plot.
+
+https://www.datanovia.com/en/blog/ggplot-themes-gallery/
+
+Look at the documentation for `theme` to understand how to customize different elements. Each element maps to four different elements
+
+`element_blank()` - we've seen this.
+`element_text()` - anything that's text (such as labels - this is where you can specify arguments like `angle`,`size`)
+`element_rect()` - anything that's a rectangle (such as the panel)
+`element_line()` - anything that's a line (such as axes and grid lines)
+
+```{r}
+?theme
 ```
 

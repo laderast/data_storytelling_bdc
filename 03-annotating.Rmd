@@ -76,6 +76,8 @@ my_plot +
   geom_hline(yintercept = 8, lty=3) +
   geom_vline(xintercept = 5, lty=3) +
   annotate("text", x = 2, y=8, label="Mean\n Rating") +
-  annotate("text", x = 7, y=8.5, label = "The Walking\n Dead (ugh)") +
+  annotate("text", x = 7, y=8.5, label = "The Walking\n Dead (brainzzz)") +
   labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating")
 ```
+
+# For more information
