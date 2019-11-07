@@ -42,7 +42,7 @@ The defaults for the plot are decent, but have some distracting elements. We can
 
 Before you move on, discuss on slack:
 
-1) What parts of the plot are distracting from your message?
+1) What parts of the plot are distracting from your message about tv shows that are `risers`?
 
 # Intelligent Defaults: Using Built in Themes
 
@@ -54,7 +54,9 @@ my_plot + theme_minimal()
 
 ## Removing elements using `theme()`
 
-We can customize our plot even further by adding a `theme()` function to the end of our plot. We'll use this to remove individual elements from the plot.
+We can customize our plot even further by adding a `theme()` function to the end of our plot. We'll use this to remove individual elements from the plot. 
+
+Note: If we change any properties after calling `theme_minimal()`, it will alter the settings in our theme.
 
 `theme()` looks very intimidating, because it has lots of different arguments. We'll only look at a few of these:
 

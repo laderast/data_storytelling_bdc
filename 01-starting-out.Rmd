@@ -73,7 +73,13 @@ Before you move on, discuss with your partner:
 2) What variable is mapped to color?
 3) What tv-shows are represented in the data?
 
-While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data.
+While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data. 
+
+## What do we want to show?
+
+We're going to highlight those shows that are `risers` in the data and make the point that shows that increase in ratings overall tend to stop early.
+
+## Assigning our plot so we can reuse it.
 
 Let's save our plot into an R object called a ggplot. We'll use the `<-` (left arrow) to assign it to the variable called `my_plot`:
 
@@ -93,4 +99,6 @@ Now, when we want to modify our plot, we can use `my_plot`. More on this in the 
 my_plot
 ```
 
+# What's next?
 
+Open up `02-decluttering.Rmd`.

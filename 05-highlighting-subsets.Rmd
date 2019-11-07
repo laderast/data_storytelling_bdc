@@ -1,0 +1,79 @@
+---
+title: "05-highlighting with subsets"
+author: "Ted Laderas"
+date: "11/7/2019"
+output: html_document
+---
+
+If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+source(here("R/init.R"))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Optional: Highlighting a subset of the data
+
+This is an optional section, but it shows you a specific trick in highlighting your data.
+
+What if we wanted to highlight a specific time period in our dataset? We can actually subset the data. 
+
+We want to specify this criteria in our `filter()` statement:
+
+```{r}
+tv_subset <- tv_shows %>%
+  filter(seasonNumber > 2) %>%
+  filter(seasonNumber < 6)
+```
+
+Now we can use this dataset to highlight this portion of the data:
+
+```{r}
+
+ggplot(tv_shows) + 
+    aes(x = seasonNumber, y= av_rating, group=title) + 
+  #color all the data - notice we pass a color argument directly in
+    geom_line(color = "grey") +
+  #color the subset - notice that pass a color argument in
+  geom_line(data = tv_subset, color = "blue") +
+  geom_vline(xintercept = 3, lty=3) +
+  geom_vline(xintercept = 5, lty=3) +
+  annotate("text", x=4, y=7, label="This is a critical\ntime period") +
+  labs(title = "Seasons 3 to 5 are Critical") + 
+  theme_minimal() + 
+  scale_x_continuous(breaks=c(1:10))
+```
+
+Now that you know how to use subsets in plotting, you can use this to highlight a group of points as well in a scatterplot as well. Here's an example:
+
+```{r}
+high_share_rated <- tv_shows %>% filter(share > 9 & av_rating > 8.5)
+
+ggplot(tv_shows) +
+  aes(x = av_rating, y=share) +
+  geom_point(color = "grey") +
+  geom_point(data = high_share_rated, color = "blue")
+```
+
+Here's an example with annotations.
+
+```{r}
+high_share_rated <- tv_shows %>% filter(share > 9 & av_rating > 8.5)
+
+ggplot(tv_shows) +
+  aes(x = av_rating, y=share) +
+  geom_point(color = "grey") +
+  geom_point(data = high_share_rated, color = "blue") +
+  labs(title = stringr::str_wrap("Only 'Breaking Bad' was high in both ratings and share")) +
+  geom_hline(yintercept = 9, lty=3) +
+  geom_vline(xintercept = 8.5, lty = 3) +
+  annotate("text", x=9.1, y=15, label="Breaking\nBad") +
+  theme_minimal()
+
+```
+

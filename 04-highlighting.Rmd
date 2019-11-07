@@ -79,28 +79,34 @@ In order to make our new variable, we will use a command called `mutate()` to se
 We can add a new variable using what is called a `mutate()` function. It lets us calculate a new variable, based on the other values of the variable. If you've used Excel's `IF()` function, it's very similar in terms of the syntax. We first provide a condition:
 
 ```
-ifelse(offense_category == "Motor Vehicle Theft", 
+ifelse(
+   #check whether a cell has the word "Comedy" in it
+   str_detect(genres, "Comedy"), 
+   #If it does, output a "Y", otherwise, output a "N"
                   yes = "Y", no = "N")
 ```
 
 The `ifelse()` function can be read:
 
-> If the value for `offense_category` is "Motor Vehicle Theft" THEN recode that value as "Y",
-> If it doesn't equal "Motor Vehicle Theft", THEN recode that value as "N"
+> If the value for `genres` contains "Comedy" THEN recode that value as "Y",
+> If it doesn't contain "Comedy", THEN recode that value as "N"
 
-Run the code below and explore the table a little bit to confirm that "Motor Vehicle Theft" crimes are coded as `Y` in our new variable, `motor_theft`:
+Run the code below and explore the table a little bit to confirm that "Comedy" shows are coded as `Y` in our new variable, ``:
 
 ```{r}
-tv_shows <- tv_shows %>% mutate(comedy = str_detect(genres, "Comedy")) 
+tv_shows_new <- tv_shows %>% 
+  mutate(comedy = 
+           ifelse(
+             #check whether a cell has the word "Comedy" in it
+             str_detect(genres, "Comedy"), 
+             #If it does, output a "Y", otherwise, output a "N"
+             yes = "Y", no = "N")
+         ) 
 
-tv_shows
+tv_shows_new
 ```
 
 Now we can use `scale_color_manual()` to remap the `TRUE` and `FALSE` values.
-
-## Using `scale_color_manual()` to color our new variable
-
-Now we have our new variable called `comedy`, we need to map the `Y` and `N` values to actual colors. We can do this by using the `scale_color_manual()` function, which lets us map values to specific colors by using the `values` argument.
 
 ```{r}
     ggplot(tv_shows) + 
@@ -110,15 +116,13 @@ Now we have our new variable called `comedy`, we need to map the `Y` and `N` val
   scale_color_manual(values=c("TRUE"="blue", 
                              "FALSE" = "grey")) +
     scale_x_continuous(breaks=c(1:10))
-
 ```
-
 
 ### Try out mapping colors
 
-Try using different colors to contrast the `motor_theft` line. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
+Try using different colors to contrast the `comedy` lines in the `values` argument to `scale_color_manual()`. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
 
-If you want to see all the color names in R, you can run the code block below.
+If you want to see all the color names in R, you can run the code block below. Be warned, it is a *lot* of colors!
 
 ```{r}
 colors()
@@ -128,7 +132,7 @@ colors()
 ```{r}
 library(tidyverse)
 
-my_new_plot <- ggplot(tv_shows) + 
+my_new_plot <- ggplot(tv_shows_new) + 
     aes(x = seasonNumber, y= av_rating, group=title, 
       color = comedy) + 
     geom_line()
@@ -136,7 +140,6 @@ my_new_plot <- ggplot(tv_shows) +
 my_new_plot + 
   scale_color_manual(values=c("TRUE"="blue", "FALSE"="grey"))
 ```
-
 
 ## Put it all together!
 
@@ -148,35 +151,6 @@ my_new_plot +
 ```
 
 
-## Optional: Highlighting a subset of the data
-
-What if we wanted to highlight a specific time period in our dataset? We can actually subset the data. 
-
-We want to specify this criteria in our `filter()` statement:
-
-```{r}
-tv_subset <- tv_shows %>%
-  filter(seasonNumber > 2) %>%
-  filter(seasonNumber < 6)
-```
-
-Now we can use this dataset to highlight this portion of the data:
-
-```{r}
-
-ggplot(tv_shows) + 
-    aes(x = seasonNumber, y= av_rating, group=title) + 
-    geom_line(color = "grey") +
-  #color the subset - notice that 
-  geom_line(data = tv_subset, color = "blue") +
-  geom_vline(xintercept = 3, lty=3) +
-  geom_vline(xintercept = 5, lty=3) +
-  annotate("text", x=4, y=7, label="This is a critical\ntime period") +
-  labs(title = "Seasons 3 to 5 are Critical") + 
-  theme_minimal() + 
-  scale_x_continuous(breaks=c(1:10))
-```
-
 # Saving High Quality Plots
 
 We can use `ggsave()` to save our plot. By default, it will save the last plot we made. 
@@ -184,4 +158,6 @@ We can use `ggsave()` to save our plot. By default, it will save the last plot w
 ```{r eval=FALSE}
 ggsave("movieplot.pdf")
 ```
+
+
 

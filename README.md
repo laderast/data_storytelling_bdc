@@ -35,7 +35,7 @@ To be added after the workshop is given.
 
 # Contributors
 
-[Ted Laderas](https://laderast.github.io), author and creator
+[Ted Laderas](https://laderast.github.io), author and creator.
 
 # License
 

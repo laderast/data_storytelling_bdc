@@ -13,7 +13,6 @@ library(here)
 source(here("R/init.R"))
 ```
 
-
 # Part 3: Annotating
 
 Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure.
@@ -53,7 +52,7 @@ my_plot +
 
 ## Adding text annotations
 
-Adding text annotations directly to the graph can be extremely helpful, especially if there is a point of interest you want users to look at. (For adding text information per data point, look at `geom_text()` and `geom_repel()` from the `ggrepel` package).
+Adding text annotations directly to the graph can be extremely helpful, especially if there are points of interest you want users to look at. (For adding text information per data point, look at `geom_text()` and `geom_repel()` from the `ggrepel` package).
 
 The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n`.
 
@@ -62,7 +61,16 @@ Try adjusting the `y` argument for `annotate()` to get the annotation more cente
 ```{r}
 my_plot + 
   geom_hline(yintercept = 7.8, lty=3) +
-  annotate("text", x = 2, y=10, label="Mean\n Rating") 
+  annotate(geom="text", x = 2, y=10, label="Mean\n Rating") 
+```
+
+# One last thing: changing the numbers in the ticks using `scale_x_continuous()`
+
+One last thing that's been bugging me - the values of the ticks in the `Season Number` axis. We can specify these numbers using the `breaks` argument. Note that `c(1:10)` is a shortcut for specifying `c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)`.
+
+```{r}
+my_plot + 
+  scale_x_continuous(breaks = c(1:10))
 ```
 
 ### Part 3: Your Turn
@@ -75,9 +83,12 @@ If there's a show that you want to highlight, try adding an annotation to highli
 my_plot + 
   geom_hline(yintercept = 8, lty=3) +
   geom_vline(xintercept = 5, lty=3) +
-  annotate("text", x = 2, y=8, label="Mean\n Rating") +
-  annotate("text", x = 7, y=8.5, label = "The Walking\n Dead (brainzzz)") +
-  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating")
+  annotate(geom="text", x = 2, y=8, label="Mean\n Rating") +
+  annotate(geom="text", x = 7, y=8.5, label = "The Walking\n Dead (brainzzz)") +
+  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating") + 
+  scale_x_continuous(breaks = c(1:10))
 ```
 
 # For more information
+
+For more examples of how annotating can make figures more clear, please check out Storytelling with Data: https://storytellingwithdata.com
