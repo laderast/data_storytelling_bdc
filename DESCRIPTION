@@ -1,12 +1,12 @@
 Type: Compendium
 Package: Data Storytelling
-Title: What the Package Does (One Line, Title Case)
+Title: Teaches how to build effective plots
 Version: 0.0.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Ted",
+           family = "Laderas",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "tedladeras@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Data Storytelling with R workshop for BioData
     Club
