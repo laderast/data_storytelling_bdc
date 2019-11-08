@@ -13,10 +13,6 @@ library(here)
 source(here("R/init.R"))
 ```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Optional: Highlighting a subset of the data
 
 This is an optional section, but it shows you a specific trick in highlighting your data.

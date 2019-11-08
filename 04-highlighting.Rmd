@@ -160,4 +160,12 @@ ggsave("movieplot.pdf")
 ```
 
 
+# More tips and tricks for using contrast and color
+
+In `03-annotating`, we saw that we can specify the line type for a particular graph. We can also specify line type as an aesthetic. Be careful with line types - too many in a figure can obscure your point.
+
+Shapes for points can also be helpful for highlighting particular data points. 
+
+More information here:
+http://www.cookbook-r.com/Graphs/Shapes_and_line_types/
 
