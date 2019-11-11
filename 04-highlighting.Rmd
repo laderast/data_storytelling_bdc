@@ -60,7 +60,7 @@ For `my_plot`, take your customizations for each section and add them below to m
 
 ```{r}
 my_plot +
-  
+  theme_minimal()
 ```
 
 ### Try out mapping colors
@@ -85,7 +85,7 @@ Cut and paste all your modifiers and make your final figure below!
 
 ```{r eval=FALSE}
 my_new_plot +
-  
+  theme_minimal()
 ```
 
 
@@ -110,4 +110,3 @@ Shapes for points can also be helpful for highlighting particular data points.
 
 More information here:
 http://www.cookbook-r.com/Graphs/Shapes_and_line_types/
-
