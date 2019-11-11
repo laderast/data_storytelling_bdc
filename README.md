@@ -24,7 +24,7 @@ Also see Kevin Watanabe Smith's Workshop for a gentle introduction to ggplot2: h
 
 # Teaching Plan
 
-This workshop is split into four different RMarkdown notebooks:
+This workshop is split into five different RMarkdown notebooks:
 
 1. Starting Out (30 Min) - Looking at the data, reviewing `ggplot2` (`01-starting-out.Rmd`)
 2. Decluttering (30 Min) - Simplifying your figure with `themes` and `theme()` (`02-decluttering.Rmd`)
