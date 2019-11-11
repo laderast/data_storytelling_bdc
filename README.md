@@ -40,6 +40,8 @@ To be added after the workshop is given.
 
 [Ted Laderas](https://laderast.github.io), author and creator.
 
+Kevin Watanable-Smith, Eric Earl, and Robin Champieux all provided extremely helpful feedback.
+
 # License
 
 This material is available under a Creative Commons NonCommercial License (CC-BY-NC).
