@@ -46,7 +46,9 @@ Before you move on, discuss on slack:
 
 # Intelligent Defaults: Using Built in Themes
 
-A lot of the simplification can come from built in themes. Adding `theme_minimal()` will remove a lot of the background elements. Try it out and compare it with the above plot.
+A lot of the simplification can come from built in themes. Themes are like a full wardrobe for our paper dolls, specifying lots of different details.  Adding `theme_minimal()` will remove a lot of the background elements. Try it out and compare it with the above plot.
+
+[leveraging efficiency using theme]
 
 ```{r}
 my_plot + theme_minimal()
@@ -95,7 +97,7 @@ Play with different combinations of these different `theme()` statements to cust
 ```{r}
 my_plot +
   theme_minimal() + 
-  theme(axis.title.x = element_blank()) + 
+  #theme(axis.title.x = element_blank()) + 
   theme(panel.grid = element_blank()) + 
   theme(legend.position = "none")
 ```
@@ -106,7 +108,7 @@ Take a look at the ggthemes gallery for other pre-made themes that can help you 
 
 https://www.datanovia.com/en/blog/ggplot-themes-gallery/
 
-Look at the documentation for `theme` to understand how to customize different elements. Each element maps to four different elements
+Look at the documentation for `theme` to understand how to customize different elements. Each element maps to four different elements:
 
 `element_blank()` - we've seen this.
 `element_text()` - anything that's text (such as labels - this is where you can specify arguments like `angle`,`size`)

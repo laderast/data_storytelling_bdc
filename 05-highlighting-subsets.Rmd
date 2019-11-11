@@ -13,11 +13,91 @@ library(here)
 source(here("R/init.R"))
 ```
 
+## Things that will make this section easier to understand
+
+Understanding `dplyr` and how `mutate()` and `filter()` work will help you out a lot in these slides.
+
+If you want to learn the basics of `dplyr`, please check out R-Bootcamp Chapter 3: https://r-bootcamp.netlify.com/chapter3
+
+## Optional: Making a Dummy Variable to color specific lines in our dataset
+
+We can manually color a single group in our data through a two step process. For example, if we want to highlight "Breaking Bad" but not the other shows we can:
+
+1. make a "dummy" variable called `breaking_bad` by recoding the `genre` variable to have `Y` when this variable has "Drama" in it, and `N` for the other categories.
+
+2. manually color the lines using `scale_color_manual()` by specifying a `values()` argument.
+
+In order to make our new variable, we will use a command called `mutate()` to search for "Breaking Bad" in the `title` variable.
+
+### Using a dummy variable in our dataset (highlight a single show)
+
+What if we wanted to highlight a single tv show in the data, such as `Breaking Bad`?
+
+We can create a dummy variable in our dataset, much like `status`. In this one, we want to create a variable called `breaking_bad` where the value is `Y` (yes) where the `title` is `Breaking Bad` and `N` (no) otherwise: 
+
+We can add a new variable using what is called a `mutate()` function. It lets us calculate a new variable, based on the other values of the variable. If you've used Excel's `IF()` function, it's very similar in terms of the syntax. We first provide a condition:
+
+
+```{r}
+tv_shows_breaking <- tv_shows %>%
+  mutate(breaking_bad = 
+           case_when( 
+             title == "Breaking Bad" ~ "Y",
+             TRUE ~ "N"
+  ))  
+```
+
+
+
+## Highlighting multiple lines using ``
+
+
+```
+ifelse(
+   #check whether a cell has the word "Comedy" in it
+   str_detect(genres, "Comedy"), 
+   #If it does, output a "Y", otherwise, output a "N"
+                  yes = "Y", no = "N")
+```
+
+The `ifelse()` function can be read:
+
+> If the value for `genres` contains "Comedy" THEN recode that value as "Y",
+> If it doesn't contain "Comedy", THEN recode that value as "N"
+
+Run the code below and explore the table a little bit to confirm that "Comedy" shows are coded as `Y` in our new variable, `comedy`:
+
+```{r}
+tv_shows_new <- tv_shows %>% 
+  mutate(comedy = 
+           ifelse(
+             #check whether a cell has the word "Comedy" in it
+             str_detect(genres, "Comedy"), 
+             #If it does, output a "Y", otherwise, output a "N"
+             yes = "Y", no = "N")
+         ) 
+
+tv_shows_new
+```
+
+Now we can use `scale_color_manual()` to remap the `TRUE` and `FALSE` values.
+
+```{r}
+    ggplot(tv_shows_new) + 
+    aes(x = seasonNumber, y= av_rating, group=title, 
+      color = comedy) + 
+    geom_line() + 
+  scale_color_manual(values=c("TRUE"="blue", 
+                             "FALSE" = "grey")) +
+    scale_x_continuous(breaks=c(1:10))
+```
+
+
 ## Optional: Highlighting a subset of the data
 
 This is an optional section, but it shows you a specific trick in highlighting your data.
 
-What if we wanted to highlight a specific time period in our dataset? We can actually subset the data. 
+What if we wanted to highlight a specific time period in our dataset? We can actually subset the data, and plot over the original data with a different color to highlight it.
 
 We want to specify this criteria in our `filter()` statement:
 
@@ -35,7 +115,8 @@ ggplot(tv_shows) +
     aes(x = seasonNumber, y= av_rating, group=title) + 
   #color all the data - notice we pass a color argument directly in
     geom_line(color = "grey") +
-  #color the subset - notice that pass a color argument in
+  #color the subset - notice that pass a color argument in directly
+  #also notice that we specify `data` to be our `tv_subset`
   geom_line(data = tv_subset, color = "blue") +
   geom_vline(xintercept = 3, lty=3) +
   geom_vline(xintercept = 5, lty=3) +

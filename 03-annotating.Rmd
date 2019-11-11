@@ -23,6 +23,8 @@ Another way we can guide people through our visualization is by using **annotati
 
 Before you move on, discuss: 
 
+What TV Show do you want to highlight with text?
+
 # Changing Titles
 
 There is a function called `labs()` that will let you change the titles for a graph. Figure out where these titles are added to the graph below.
@@ -34,6 +36,8 @@ my_plot +
        y="Average Rating")
 ```
 
+Why is `labs()` not part of `theme()`? This is one confusing thing about `ggplot2`. `theme()` is about the *appearance* (position, angle, font size) of an element, whereas the `labs()` function actually provides the *content*.
+
 ## Adding a Reference Line
 
 Using `geom_hline()` to show the average value across a time period can provide a useful reference for viewers:
@@ -43,7 +47,7 @@ my_plot +
   geom_hline(yintercept = 7.8, lty=3)
 ```
 
-We can add a vertical reference line instead using `geom_vline()`:
+We can add a vertical reference line instead using `geom_vline()` (note the argument, `xintercept` is different than `geom_hline()`):
 
 ```{r}
 my_plot + 
@@ -54,14 +58,14 @@ my_plot +
 
 Adding text annotations directly to the graph can be extremely helpful, especially if there are points of interest you want users to look at. (For adding text information per data point, look at `geom_text()` and `geom_repel()` from the `ggrepel` package).
 
-The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n`.
+> The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n`.
 
 Try adjusting the `y` argument for `annotate()` to get the annotation more centered around the mean line. 
 
 ```{r}
 my_plot + 
   geom_hline(yintercept = 7.8, lty=3) +
-  annotate(geom="text", x = 2, y=10, label="Mean\n Rating") 
+  annotate(geom="text", x = 2, y=10 , label="Mean Rating") 
 ```
 
 # One last thing: changing the numbers in the ticks using `scale_x_continuous()`
@@ -80,6 +84,8 @@ Experiment with the following modifications to the graph. If you have time, cut 
 If there's a show that you want to highlight, try adding an annotation to highlight it. Or try adding an annotation at `Roseanne`'s lowest rating!
 
 ```{r}
+#put this in order
+
 my_plot + 
   geom_hline(yintercept = 8, lty=3) +
   geom_vline(xintercept = 5, lty=3) +

@@ -42,7 +42,7 @@ DT::datatable(tv_shows)
 
 # Part 1: Your Basic Plot
 
-We're going to start working with a basic visualization. A ggplot has the following recipe:
+We're going to start working with a basic visualization [define ggplot here]  A ggplot has the following recipe:
 
 ```
 A dataset +
@@ -69,9 +69,12 @@ ggplot(tv_shows) +
 
 Before you move on, discuss with your partner:
 
-1) What variable is mapped to the x axis? What is the name of that variable?
+1) What variable is mapped to the x aesthetic? What is the name of that variable?
 2) What variable is mapped to color?
-3) What tv-shows are represented in the data?
+3) Why do we need to assign `title` to `group`? (Hint: try removing that line.)
+4) What tv-shows are represented in the data?
+
+[critique graph - what does it communicate - how could it be better? Are there any shows that stand out in comparison to the other shows?]
 
 While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data. 
 
