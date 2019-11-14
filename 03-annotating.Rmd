@@ -1,8 +1,6 @@
 ---
 title: "Data Storytelling 3 - Annotating"
-output:
-  html_document:
-    df_print: paged
+output: html_notebook
 ---
 
 If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
@@ -15,15 +13,17 @@ source(here("R/init.R"))
 
 # Part 3: Annotating
 
-Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure.
+## Learning Objectives
 
-1) Changing Titles and Axis Titles using `labs()`
-2) Adding reference lines using `geom_hline()` and `geom_vline()`
-3) Annotating the plot directly using `annotate()`
+- Learn about how annotations can help your viewer
+- Modify titles using `labs()`
+- Adding reference lines
+- Annotating directly onto the graph
+- Changing the scale
 
-Before you move on, discuss: 
+# Before you move on, discuss: 
 
-What TV Show do you want to highlight with text?
+What TV Show do you want to highlight with text? Why is it interesting to you? Is there a trend you want to highlight?
 
 # Changing Titles
 
@@ -58,9 +58,9 @@ my_plot +
 
 Adding text annotations directly to the graph can be extremely helpful, especially if there are points of interest you want users to look at. (For adding text information per data point, look at `geom_text()` and `geom_repel()` from the `ggrepel` package).
 
-> The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n`.
+> The first argument to `annotate()` is "text", and it takes `x` and `y` arguments to determine the position of our annotation. Our actual text goes in the `label` argument. If we want to add a line break in our text, we can add `\n` - this is how we specify a line break in our text.
 
-Try adjusting the `y` argument for `annotate()` to get the annotation more centered around the mean line. 
+Try adjusting the `y` argument for `annotate()` to get the annotation more centered around the mean reference line. 
 
 ```{r}
 my_plot + 
@@ -87,14 +87,14 @@ If there's a show that you want to highlight, try adding an annotation to highli
 #put this in order
 
 my_plot + 
-  geom_hline(yintercept = 8, lty=3) +
+    labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating") + 
   geom_vline(xintercept = 5, lty=3) +
-  annotate(geom="text", x = 2, y=8, label="Mean\n Rating") +
   annotate(geom="text", x = 7, y=8.5, label = "The Walking\n Dead (brainzzz)") +
-  labs(title = "Is it better to burn out than fade away?",x="Season Number", y="Average Rating") + 
   scale_x_continuous(breaks = c(1:10))
 ```
 
 # For more information
 
-For more examples of how annotating can make figures more clear, please check out Storytelling with Data: https://storytellingwithdata.com
+For more examples of how annotating can make figures more clear, please check out Storytelling with Data: https://storytellingwithdata.com, especially the linegraphs with annotations for examples: http://www.storytellingwithdata.com/blog/2018/1/22/88-annotated-line-graphs
+
+Making annotations first class citizens in data visualization: https://medium.com/@Elijah_Meeks/making-annotations-first-class-citizens-in-data-visualization-21db6383d3fe

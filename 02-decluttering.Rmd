@@ -1,8 +1,6 @@
 ---
 title: "Data Storytelling 2 - Decluttering"
-output:
-  html_document:
-    df_print: paged
+output: html_notebook
 ---
 If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
 
@@ -18,11 +16,6 @@ source(here("R/init.R"))
 - Reducing clutter using built in themes
 - Removing elements using `theme()`
 
-# Why do we need to declutter our graphs?
-
-- Reduce cognitive load
-- Viewer can focus on what matters
-- Not every default is useful
 
 # A basic ggplot
 

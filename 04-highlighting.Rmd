@@ -1,8 +1,6 @@
 ---
 title: "Data Storytelling 4 - Highlighting"
-output:
-  html_document:
-    df_print: paged
+output: html_notebook
 ---
 
 If you've skipped ahead (and not run Part 1), run this code chunk to load the relevant data and plot:
@@ -11,16 +9,6 @@ If you've skipped ahead (and not run Part 1), run this code chunk to load the re
 knitr::opts_chunk$set(echo = TRUE)
 library(here)
 source(here("R/init.R"))
-```
-
-# Part 4: Working with Color/Contrast
-
-Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we consciously process the content of a graph.
-
-You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image? How hard would it be if the 3s weren't distinct from the other digits?
-
-```{r}
-knitr::include_graphics("image/threes.png")
 ```
 
 ## Changing the base plot (slightly)
@@ -35,7 +23,7 @@ my_plot <-
     aes(x = seasonNumber, 
         y= av_rating, 
         group=title, 
-        color = status) + 
+        color = status) +   #changing `color` to map to `status` here
     geom_line()
 
 my_plot
@@ -54,36 +42,22 @@ my_plot +
   theme_minimal()
 ```
 
-## Putting it all together
-
-For `my_plot`, take your customizations for each section and add them below to make your final plot.
-
-```{r}
-my_plot +
-  theme_minimal()
-```
-
 ### Try out mapping colors
 
-Try using different colors to contrast the `comedy` lines in the `values` argument to `scale_color_manual()`. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
+Try using different colors to contrast the lines in the `values` argument to `scale_color_manual()`. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html
 
 ```{r}
 library(tidyverse)
 
-my_new_plot <- ggplot(tv_shows_new) + 
-    aes(x = seasonNumber, y= av_rating, group=title, 
-      color = comedy) + 
-    geom_line()
-
 my_new_plot + 
-  scale_color_manual(values=c("TRUE"="blue", "FALSE"="grey"))
+  scale_color_manual(values=c("riser"="blue", "faller"="grey"))
 ```
 
 ## Put it all together!
 
 Cut and paste all your modifiers and make your final figure below!
 
-```{r eval=FALSE}
+```{r}
 my_new_plot +
   theme_minimal()
 ```
@@ -106,7 +80,7 @@ Ten Simple Rules for Better Figures: https://journals.plos.org/ploscompbiol/arti
 
 In `03-annotating`, we saw that we can specify the line type for a particular graph. We can also specify line type as an aesthetic. Be careful with line types - too many in a figure can obscure your point.
 
-Shapes for points can also be helpful for highlighting particular data points. 
+Shapes for points can also be helpful for highlighting particular data points. Here's a useful reference.
 
 More information here:
 http://www.cookbook-r.com/Graphs/Shapes_and_line_types/

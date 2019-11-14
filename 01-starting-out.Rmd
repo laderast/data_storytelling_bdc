@@ -1,8 +1,6 @@
 ---
 title: "Data Storytelling 1 - Starting Out"
-output:
-  html_document:
-    df_print: paged
+output: html_notebook
 ---
 # Learning Objectives
 
@@ -10,23 +8,12 @@ output:
 - Review `ggplot2` syntax
 - Look at a simple visualization that we're going to improve
 
-# Data Storytelling
+# RStudio Review (1 min)
 
-Two kinds of modes for visualization:
+- Script view 
+- File Viewer
 
-- Exploratory
-  - What is there in the data? 
-  - Often try lots of them
-- Explanatory
-  - I found this, and this is why it's important
-
-# How can we data storytell?
-
-- Communicate clearly with your figure
-- Making your point more obvious
-- Reducing cognitive load
-
-# Let's look at the basic dataset first
+# Let's look at the basic dataset first (3 min)
 
 We're going to look at a dataset about tv shows that was collected from ImDb (The internet movie database).
 
@@ -40,14 +27,14 @@ tv_shows <- read.csv(here("data/tv_shows.csv"))
 DT::datatable(tv_shows)
 ```
 
-# Part 1: Your Basic Plot
+# Part 1: Your Basic Plot (5 min)
 
 We're going to start working with a basic visualization [define ggplot here]  A ggplot has the following recipe:
 
 ```
 A dataset +
 A mapping of visual aesthetics to variables +
-A geom(metry)
+A geom(etry)
 ```
 Remember, we use `+` to add elements to a ggplot.
 
@@ -67,22 +54,21 @@ ggplot(tv_shows) +
   geom_line()
 ```
 
-Before you move on, discuss with your partner:
-
-1) What variable is mapped to the x aesthetic? What is the name of that variable?
-2) What variable is mapped to color?
-3) Why do we need to assign `title` to `group`? (Hint: try removing that line.)
-4) What tv-shows are represented in the data?
-
-[critique graph - what does it communicate - how could it be better? Are there any shows that stand out in comparison to the other shows?]
+# Discussion (5 min)
 
 While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data. 
 
-## What do we want to show?
+Before you move on, discuss on slack or in person:
+
+- What does this graph communicate?
+- How could it be better?
+- Are there any shows that stand out?
+
+# What do we want to show?
 
 We're going to highlight those shows that are `risers` in the data and make the point that shows that increase in ratings overall tend to stop early.
 
-## Assigning our plot so we can reuse it.
+# Assigning our plot so we can reuse it (3 min).
 
 Let's save our plot into an R object called a ggplot. We'll use the `<-` (left arrow) to assign it to the variable called `my_plot`:
 
