@@ -42,6 +42,8 @@ my_plot +
   theme_minimal()
 ```
 
+If you've mapped a variable to `fill`, you'll have to use `scale_fill_manual()` to map values to colors.
+
 ### Try out mapping colors
 
 Try using different colors to contrast the lines in the `values` argument to `scale_color_manual()`. A small list of color names in R can be found here: https://www.r-graph-gallery.com/42-colors-names.html

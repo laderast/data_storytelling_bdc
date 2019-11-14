@@ -35,7 +35,6 @@ We can create a dummy variable in our dataset, much like `status`. In this one, 
 
 We can add a new variable using what is called a `mutate()` function. It lets us calculate a new variable, based on the other values of the variable. If you've used Excel's `IF()` function, it's very similar in terms of the syntax. We first provide a condition:
 
-
 ```{r}
 tv_shows_breaking <- tv_shows %>%
   mutate(breaking_bad = 
@@ -47,15 +46,17 @@ tv_shows_breaking <- tv_shows %>%
 
 
 
-## Highlighting multiple lines using ``
-
+## Highlighting multiple lines using `case_when`:
 
 ```
-ifelse(
+mutate(
    #check whether a cell has the word "Comedy" in it
-   str_detect(genres, "Comedy"), 
-   #If it does, output a "Y", otherwise, output a "N"
-                  yes = "Y", no = "N")
+      #If it does, output a "Y", 
+    comedy = case_when(
+        str_detect(genres, "Comedy") ~ "Y", 
+      #otherwise, output a "N"
+                  TRUE = "N)
+      }
 ```
 
 The `ifelse()` function can be read:
@@ -67,13 +68,16 @@ Run the code below and explore the table a little bit to confirm that "Comedy" s
 
 ```{r}
 tv_shows_new <- tv_shows %>% 
-  mutate(comedy = 
-           ifelse(
-             #check whether a cell has the word "Comedy" in it
-             str_detect(genres, "Comedy"), 
-             #If it does, output a "Y", otherwise, output a "N"
-             yes = "Y", no = "N")
-         ) 
+  mutate(
+   #check whether a cell has the word "Comedy" in it
+      #If it does, output a "Y", 
+     comedy = case_when(
+        str_detect(genres, "Comedy") ~ "Y", 
+      #otherwise, output a "N"
+                  TRUE ~ "N"
+      )
+     )
+      
 
 tv_shows_new
 ```
@@ -85,8 +89,8 @@ Now we can use `scale_color_manual()` to remap the `TRUE` and `FALSE` values.
     aes(x = seasonNumber, y= av_rating, group=title, 
       color = comedy) + 
     geom_line() + 
-  scale_color_manual(values=c("TRUE"="blue", 
-                             "FALSE" = "grey")) +
+  scale_color_manual(values=c("Y"="blue", 
+                             "N" = "grey")) +
     scale_x_continuous(breaks=c(1:10))
 ```
 

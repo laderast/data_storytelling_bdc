@@ -17,6 +17,7 @@ source(here("R/init.R"))
 - Removing elements using `theme()`
 
 
+
 # A basic ggplot
 
 We're going to take this basic plot and try to reduce the amount of clutter.
@@ -37,11 +38,15 @@ Before you move on, discuss on slack:
 
 1) What parts of the plot are distracting from your message about tv shows that are `risers`?
 
+# One note
+
+In each section, we're trying different types of modification, so they're not cumulative. However, you can cut and paste the modifications together in the end to have your final customized plot.
+
 # Intelligent Defaults: Using Built in Themes
 
 A lot of the simplification can come from built in themes. Themes are like a full wardrobe for our paper dolls, specifying lots of different details.  Adding `theme_minimal()` will remove a lot of the background elements. Try it out and compare it with the above plot.
 
-[leveraging efficiency using theme]
+Built in themes let you be more efficient in paring elements down, but you will often find that you need to customize them. That's what we'll look at next.
 
 ```{r}
 my_plot + theme_minimal()
@@ -51,7 +56,7 @@ my_plot + theme_minimal()
 
 We can customize our plot even further by adding a `theme()` function to the end of our plot. We'll use this to remove individual elements from the plot. 
 
-Note: If we change any properties after calling `theme_minimal()`, it will alter the settings in our theme.
+Note: If we change any theme attributes after calling `theme_minimal()`, it will basically *overwrite* the previous built-in theme. This means that order is important, so keep that in mind!
 
 `theme()` looks very intimidating, because it has lots of different arguments. We'll only look at a few of these:
 
@@ -59,7 +64,7 @@ Note: If we change any properties after calling `theme_minimal()`, it will alter
 - `panel.grid` (grid lines)
 - `legend.position` (Placing the legend, including removing it)
 
-How will we remove these elements? We will specify an element called `element_blank()` to these arguments. What is this? Think of it as a special placeholder that says we don't want to see this element.
+How will we remove these elements? For most of them, we will specify an element called `element_blank()` to these arguments. What is this? Think of it as a special placeholder that says we don't want to see this element.
 
 Let's try simplifying our plot by removing the x-axis text. By context, the label `seasonNumber` isn't that helpful.
 
@@ -69,18 +74,20 @@ my_plot +
 
 ```
 
-Try removing the legend. Hmm, it is more simplified, but we have lost all the information about the categories! We can add that information back with the use of color in the next section.
-
-```{r}
-my_plot + 
-  theme(legend.position = "none")
-```
-
-Try removing the gridlines. Is that helpful?
+Try removing the gridlines. Is that helpful or not?
 
 ```{r}
 my_plot + 
   theme(panel.grid = element_blank())
+```
+
+Sometimes, to remove some items, like the legend, you have to specify it not as `element_blank`, but as "none". Try removing the legend. 
+
+Hmm, it is more simplified, but we have lost all the information about the categories! We can add that information back with the use of color in section 3.
+
+```{r}
+my_plot + 
+  theme(legend.position = "none")
 ```
 
 ## Your turn
@@ -101,7 +108,7 @@ Take a look at the ggthemes gallery for other pre-made themes that can help you 
 
 https://www.datanovia.com/en/blog/ggplot-themes-gallery/
 
-Look at the documentation for `theme` to understand how to customize different elements. Each element maps to four different elements:
+Look at the documentation for `theme()` to understand how to customize different elements. Each element maps to four different elements:
 
 `element_blank()` - we've seen this.
 `element_text()` - anything that's text (such as labels - this is where you can specify arguments like `angle`,`size`)

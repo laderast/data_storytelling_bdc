@@ -58,7 +58,7 @@ ggplot(tv_shows) +
 
 While this visualization might be good for exploratory purposes, for explanatory purposes, it is a little too complicated to communicate our findings about the data. 
 
-Before you move on, discuss on slack or in person:
+Before you move on, discuss on slack:
 
 - What does this graph communicate?
 - How could it be better?
