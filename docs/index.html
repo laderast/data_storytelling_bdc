@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Data Storytelling</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ted Laderas" />
+    <meta name="date" content="2019-11-14" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data Storytelling
+## BioData Club
+### Ted Laderas
+### 2019-11-14
+
+---
+
+
+
+
+
+
+# Overview
+
+- Part 1: Getting Started
+- Part 2: Decluttering
+- Part 3: Annotating
+- Part 4: Highlighting
+---
+
+# Reminder
+
+This workshop adheres to the BioData Club Code of Conduct: https://biodata-club.github.io/code_of_conduct 
+
+Please be respectful of your fellow learners and help each other learn.
+
+Remember, it's dangerous to learn alone!
+---
+# Motivation: Exploratory versus Explanatory
+
+.pull-left[
+**Exploratory analysis**: 
+  - exploring and understanding the data, conducting the analysis
+]
+.pull-right[
+**Explanatory analysis**: 
+  - explaining your findings from your analysis in a coherent narrative that leads to a call to action
+]
+---
+# Effective Visual Communication
+
+Focus on three techniques:
+
+- Decluttering your plot
+- Annotating your graph and data
+- Highlight data using Preattentive Attributes
+
+---
+# Paper Doll Approach
+
+.pull-left[
+  - We're going to take a basic plot and dress it up
+  - Modify its appearance to make our point more understandable
+  - Three sections
+]
+
+.pull-right[
+![](image/giphy.gif)&lt;!-- --&gt;
+]
+---
+
+class: center, middle
+# Let's open 01-starting-out.Rmd
+
+---
+class: center, middle
+# Part 2: Declutter your graph
+
+---
+# Why do we need to declutter our graphs?
+
+- Reduce cognitive load (help tired and cranky viewers)
+- Viewer can focus on what matters
+- Not all information is useful for your viewer
+
+---
+# Example: London Subway Diagram
+
+.pull-left[
+![](image/london-underground.jpg)&lt;!-- --&gt;
+]
+http://theconversation.com/sublime-design-the-london-underground-map-26240
+
+---
+# Cognitive Load
+
+- Think of your audience: Tired and cranky and want you to get to the point!
+- Remove distracting details from your message 
+  - legend
+
+---
+# Ask Yourself
+
+- Does this element support the point I want to make about the data?
+
+---
+class: center, middle
+# Let's open up 02-decluttering.Rmd
+
+---
+class: center, middle
+# Part 3: Annotating Your Graphs
+
+---
+# Guiding Your Viewer 
+
+Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure. Let's review some best practices.
+
+---
+# Use your titles!
+
+- Titles can guide people to the point of your figure
+- Primes people to know what to look for
+- "If there is a conclusion you want your audience to reach, state it in words" - Cole Nussbaum Knaflic
+---
+# Don't label everything
+
+- Think about only labeling the data that matters
+- If you want someone to compare two shows, label them
+- Think about groupings and "super categories" to help your viewers make sense of the graph
+---
+class: center, middle
+&lt;img src="image/Colin.png" width="2000" /&gt;
+
+https://datawoj.co.uk/visualising-data-on-which-social-media-network-us-teenagers-prefer/
+---
+class: center, middle
+# Let's open 03-annotating.Rmd
+
+---
+class: center, middle
+# Part 4: Highlighting Data 
+
+---
+# Preattentive attributes
+
+.pull-left[
+Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we consciously process the content of a graph.
+
+You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image? How hard would it be if the 3s weren't distinct from the other digits?
+]
+
+.pull-right[
+&lt;img src="image/threes.png" width="743" /&gt;
+]
+---
+# Best Practices for Using Color
+
+- Use color sparingly (not everything needs a color!)
+- Think of what data you're going to highlight
+- Check for accessibility
+
+---
+class: center, middle
+# Let's open up 04-highlighting.Rmd
+
+---
+# Conclusions
+
+Congrats! You're well on your way to learning how to make your figures more accessible.
+
+---
+class: center, middle
+&lt;img src="image/David_H.png" width="1323" /&gt;
+
+https://t.co/KSGQzaH0Mh
+---
+# `ggplot2` flipbook
+
+Good examples for styling your plots!
+
+https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
+
+- [Arctic Ice](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#226)
+- [Flipping Seats](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#302)
+- [Milk Cows](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#354)
+
+---
+# References
+
+- [Allison Sliter: Data Presentation for Everyone](https://ww2.amstat.org/meetings/sdss/2019/onlineprogram/AbstractDetails.cfm?AbstractID=306642)
+- [`ggplot2` flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html)
+- [Alison Hill: Take a Sad Plot and Make it Better](https://alison.rbind.io/talk/2018-ohsu-sad-plot-better/)
+- [Storytelling with Data](http://www.storytellingwithdata.com/books)
+- Slides are done with xaringan/xaringanthemer
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
