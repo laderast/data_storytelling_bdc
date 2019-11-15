@@ -24,16 +24,16 @@
 body {
   font-family: Montserrat, 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif;
   font-weight: 300;
-  color: #13393A;
+  color: #11114E;
 }
 h1, h2, h3 {
   font-family: Josefin Sans;
   font-weight: normal;
-  color: #1c5253;
+  color: midnightblue;
 }
 .remark-slide-content {
-  background-color: #E8EDED;
-  font-size: 25px;
+  background-color: #E8E8F0;
+  font-size: 28px;
   
   
   
@@ -56,18 +56,18 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: 1em;
-  color: #1c5253;
+  color: midnightblue;
   
   
 }
 .remark-slide-number {
-  color: #1c5253;
+  color: midnightblue;
   opacity: 1;
   font-size: 0.9em;
 }
-strong{color:#1c5253;}
+strong{color:midnightblue;}
 a, a > code {
-  color: blue;
+  color: deepskyblue1;
   text-decoration: none;
 }
 .footnote {
@@ -81,18 +81,18 @@ a, a > code {
   background-color: rgba(255,255,0,0.5);
 }
 .inverse {
-  background-color: #1c5253;
-  color: #E8EDED;
+  background-color: midnightblue;
+  color: #E8E8F0;
   
 }
 .inverse h1, .inverse h2, .inverse h3 {
-  color: #E8EDED;
+  color: #E8E8F0;
 }
 .title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
-  color: #E8EDED;
+  color: #E8E8F0;
 }
 .title-slide {
-  background-color: #1c5253;
+  background-color: midnightblue;
   
   
   
@@ -107,10 +107,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #1c525399;
+  color: midnightblue99;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #1c5253;
+  color: midnightblue;
 }
 .right-column {
   width: 75%;
@@ -132,7 +132,7 @@ img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #1c525380;
+  border-left: solid 5px midnightblue80;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -142,25 +142,25 @@ blockquote {
 }
 .remark-slide table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
-.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #D1DCDC }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #D1D1E2 }
 table.dataTable tbody {
-  background-color: #E8EDED;
-  color: #13393A;
+  background-color: #E8E8F0;
+  color: #11114E;
 }
 table.dataTable.display tbody tr.odd {
-  background-color: #E8EDED;
+  background-color: #E8E8F0;
 }
 table.dataTable.display tbody tr.even {
-  background-color: #D1DCDC;
+  background-color: #D1D1E2;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
-  color: #13393A;
+  color: #11114E;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-  color: #13393A !important;
+  color: #11114E !important;
 }
 
 @page { margin: 0; }

@@ -1,8 +1,8 @@
 ---
 title: "Data Storytelling"
 subtitle: "BioData Club"
-author: "Ted Laderas"
-date: " `r Sys.Date()`"
+author: "Ted Laderas, PhD<br><span style = 'font-size: 50%;'>Division of Bioinformatics and Computational Biomedicine<br>Department of Medical Informatics and Clinical Epidemiology</span>"
+date: '`r Sys.Date()`<br><br>`r icon::fa("twitter")` [tladeras](https://twitter.com/tladeras)'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -22,12 +22,12 @@ library(here)
 ```{r xaringan-themer, include = FALSE}
 library(xaringanthemer)
 mono_light(
-  base_color = "#1c5253",
+  base_color = "midnightblue",
   header_font_google = google_font("Josefin Sans"),
   text_font_google   = google_font("Montserrat", "300", "300i"),
   code_font_google   = google_font("Droid Mono"),
-  link_color = "blue",
-  text_font_size = "25px"
+  link_color = "deepskyblue1",
+  text_font_size = "28px"
 )
 ```
 
@@ -38,7 +38,14 @@ mono_light(
 - Part 3: Annotating
 - Part 4: Highlighting
 ---
+# Future Events
 
+- December 10 (12 PM) - Data and Donuts
+- January 10 (4:30 - 6 PM) - How to make a reproducible paper
+
+Make sure you're signed up on the mailing list for more info! (if you are external to OHSU, email laderast@ohsu.edu)
+
+---
 # Reminder
 
 This workshop adheres to the BioData Club Code of Conduct:
@@ -47,7 +54,7 @@ https://biodata-club.github.io/code_of_conduct
 
 Please be respectful of your fellow learners and help each other learn.
 
-Remember, it's dangerous to learn alone!
+Remember, it's dangerous to learn alone! Partner up with someone, it's fun to learn together.
 ---
 # Motivation: Exploratory versus Explanatory
 
@@ -186,7 +193,23 @@ class: center, middle
 .pull-left[
 Color and contrast are known as `preattentive attributes`. Our unconscious brain is aware of these kinds of attributes even before we consciously process the content of a graph.
 
-You can use color and contrast to highlight aspects of the data. Take a look at the following image. How many 3s are there in this image? How hard would it be if the 3s weren't distinct from the other digits?
+How many 3s are there in this image?
+]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::include_graphics("image/threes-grey.png")
+```
+]
+
+.footnote[[Storytelling with Data](http://storytellingwithdata.com/)]
+---
+# How about now?
+
+.pull-left[
+You can use color and contrast to highlight aspects of the data. How many 3s are there in this image now? Notice how much quicker you can count them. 
+
+That's the power of preattentive attributes!
 ]
 
 .pull-right[
@@ -194,6 +217,8 @@ You can use color and contrast to highlight aspects of the data. Take a look at 
 knitr::include_graphics("image/threes.png")
 ```
 ]
+
+.footnote[[Storytelling with Data](http://storytellingwithdata.com/)]
 ---
 # Best Practices for Using Color (Stephen Few)
 
@@ -222,6 +247,10 @@ knitr::include_graphics("image/David_H.png")
 ```
 .footnote[https://t.co/KSGQzaH0Mh]
 ---
+class: center, middle
+
+# Going Farther
+---
 # `ggplot2` flipbook
 
 Good examples for styling your plots!
@@ -231,6 +260,11 @@ https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
 - [Arctic Ice](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#226)
 - [Flipping Seats](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#302)
 - [Milk Cows](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#354)
+---
+# CSE631 Principles and Practice of Data Visualization
+
+- [Excellent course](https://cslu.ohsu.edu/~bedricks/courses/cs631/) that will have you learning many more principles of visualizations
+- More work with R!
 
 ---
 # References
@@ -241,3 +275,9 @@ https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
 - [Alison Hill: Take a Sad Plot and Make it Better](https://alison.rbind.io/talk/2018-ohsu-sad-plot-better/)
 - Slides are done with xaringan/xaringanthemer
 
+---
+# Keep in Touch
+
+`r icon::fa("envelope")` laderast at ohsu.edu <br>
+`r icon::fa("link")` https://laderast.github.io <br>
+`r icon::fa("twitter")` [tladeras](https://twitter.com/tladeras)
