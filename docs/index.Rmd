@@ -43,7 +43,7 @@ mono_light(
 - December 10 (12 PM) - Data and Donuts
 - January 10 (4:30 - 6 PM) - How to make a reproducible paper
 
-Make sure you're signed up on the mailing list for more info! (if you are external to OHSU, email laderast@ohsu.edu)
+Make sure you're signed up on the mailing list for more info! Link at http://biodata-club.github.io
 
 ---
 # Reminder
@@ -54,7 +54,7 @@ https://biodata-club.github.io/code_of_conduct
 
 Please be respectful of your fellow learners and help each other learn.
 
-Remember, it's dangerous to learn alone! Partner up with someone, it's fun to learn together.
+Remember, it's dangerous to learn alone! So partner up with someone, it's fun to learn together.
 ---
 # Motivation: Exploratory versus Explanatory
 
@@ -265,6 +265,9 @@ https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
 
 - [Excellent course](https://cslu.ohsu.edu/~bedricks/courses/cs631/) that will have you learning many more principles of visualizations
 - More work with R!
+---
+class: center, middle
+# Please fill out our survey!
 
 ---
 # References
