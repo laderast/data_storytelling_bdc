@@ -67,7 +67,7 @@ h1, h2, h3 {
 }
 strong{color:#1c5253;}
 a, a > code {
-  color: #1c5253;
+  color: blue;
   text-decoration: none;
 }
 .footnote {

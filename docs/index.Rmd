@@ -26,6 +26,7 @@ mono_light(
   header_font_google = google_font("Josefin Sans"),
   text_font_google   = google_font("Montserrat", "300", "300i"),
   code_font_google   = google_font("Droid Mono"),
+  link_color = "blue",
   text_font_size = "25px"
 )
 ```
@@ -118,13 +119,20 @@ knitr::include_graphics("image/london-underground.jpg")
 
 - Think of your audience: 
     - Tired and cranky and want you to get to the point!
+    - Short term memory 5 +/- 2 things at once
 - Remove elements that distract from your message
+    - Shadows, 3D Effects
+    - Legends/too many colors 
+    - Axis Titles (sometimes)
 
 ---
 # Ask Yourself
 
-- Does this element support the point I want to make about the data?
-- A great example: http://www.storytellingwithdata.com/blog/2017/3/29/declutter-this-graph
+- Does this element support [the point I want to make about the data?](http://www.storytellingwithdata.com/blog/2017/3/29/declutter-this-graph)
+
+```{r echo=FALSE}
+knitr::include_graphics("image/before-after.png")
+```
 
 ---
 class: center, middle
