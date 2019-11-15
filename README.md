@@ -8,6 +8,8 @@ TV Show Data set is courtesy of Tidy Tuesday. Give them some love!
 
 # To Run this Workshop
 
+Slides are available here: https://laderast.github.io/data_storytelling_bdc/ They are made to introduce the data storytelling concepts for each section.
+
 Have your students click on the binder link below to open up a Binder version of RStudio. Then open up `01-starting-out.Rmd` and start playing around with the notebooks.
 
 Note: I am still debugging the binder. To be fixed soon.
