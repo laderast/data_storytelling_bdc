@@ -40,7 +40,9 @@ mono_light(
 
 # Reminder
 
-This workshop adheres to the BioData Club Code of Conduct: https://biodata-club.github.io/code_of_conduct 
+This workshop adheres to the BioData Club Code of Conduct:
+
+https://biodata-club.github.io/code_of_conduct 
 
 Please be respectful of your fellow learners and help each other learn.
 
@@ -69,9 +71,8 @@ Focus on three techniques:
 # Paper Doll Approach
 
 .pull-left[
-  - We're going to take a basic plot and dress it up
-  - Modify its appearance to make our point more understandable
-  - Three sections
+- We're going to take a basic plot and dress it up
+- Modify its appearance to make our point more understandable and immediate
 ]
 
 .pull-right[
@@ -103,19 +104,27 @@ class: center, middle
 knitr::include_graphics("image/london-underground.jpg")
 ```
 ]
-http://theconversation.com/sublime-design-the-london-underground-map-26240
+
+.pull-right[
+- Triumph of minimal design
+- Removes geography
+- Emphasizes: what lines to I take to get from A to B?
+]
+
+.footnote[http://theconversation.com/sublime-design-the-london-underground-map-26240]
 
 ---
 # Cognitive Load
 
-- Think of your audience: Tired and cranky and want you to get to the point!
-- Remove distracting details from your message 
-  - legend
+- Think of your audience: 
+    - Tired and cranky and want you to get to the point!
+- Remove elements that distract from your message
 
 ---
 # Ask Yourself
 
 - Does this element support the point I want to make about the data?
+- A great example: http://www.storytellingwithdata.com/blog/2017/3/29/declutter-this-graph
 
 ---
 class: center, middle
@@ -131,7 +140,7 @@ class: center, middle
 Another way we can guide people through our visualization is by using **annotations**, which can be very helpful in guiding someone through our figure. Let's review some best practices.
 
 ---
-# Use your titles!
+# Use your titles/captions!
 
 - Titles can guide people to the point of your figure
 - Primes people to know what to look for
@@ -139,9 +148,15 @@ Another way we can guide people through our visualization is by using **annotati
 ---
 # Don't label everything
 
-- Think about only labeling the data that matters
+.pull-left[- Think about only labeling the data that matters
 - If you want someone to compare two shows, label them
-- Think about groupings and "super categories" to help your viewers make sense of the graph
+- Think about groupings and "super categories" to help your viewers make sense of the graph]
+
+.pull-right[
+```{r echo=FALSE}
+knitr::include_graphics("image/super-category.png")
+```
+]
 ---
 class: center, middle
 ```{r echo=FALSE, fig.height=5}
@@ -172,11 +187,15 @@ knitr::include_graphics("image/threes.png")
 ```
 ]
 ---
-# Best Practices for Using Color
+# Best Practices for Using Color (Stephen Few)
 
-- Use color sparingly (not everything needs a color!)
-- Think of what data you're going to highlight
-- Check for accessibility
+- Use color only when needed to serve a particular communication goal
+- Use different colors only when they correspond to differences of meaning in the data.
+- Use soft, natural colors to display most information and bright and/or dark colors to highlight information that requires greater attention.
+- When using color to encode a sequential range of quantitative values, stick with a single hue (or a small set of closely related hues) and vary intensity from pale colors for low values to increasingly darker and brighter colors for high values.
+- To guarantee that most people who are colorblind can distinguish groups of data that are color coded, avoid using a combination of red and green in the same display. 
+
+.footnote[[Practical Rules for Using Color](http://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf)]
 
 ---
 class: center, middle
@@ -189,11 +208,15 @@ Congrats! You're well on your way to learning how to make your figures more acce
 
 ---
 class: center, middle
+# Putting it all Together
+
+---
+class: center, middle
+
+https://t.co/KSGQzaH0Mh
 ```{r echo=FALSE}
 knitr::include_graphics("image/David_H.png")
 ```
-
-https://t.co/KSGQzaH0Mh
 ---
 # `ggplot2` flipbook
 
