@@ -1,8 +1,0 @@
-install.packages('rmarkdown')
-install.packages('DT')
-install.packages('here')
-install.packages('tidyverse')
-install.packages('knitr')
-install.packages('stringr')
-install.packages('broom')
-install.packages('readr')
