@@ -1,4 +1,4 @@
-FROM rocker/rstudio:3.6.0
+FROM rocker/tidyverse:3.6.0
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
@@ -12,7 +12,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libsasl2-dev \
   && install2.r --error \
     --deps TRUE \
-    tidyverse \
     DT \
     broom \
     stringr \
