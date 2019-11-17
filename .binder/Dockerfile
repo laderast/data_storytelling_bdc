@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:3.6.0
+FROM rocker/tidyverse:3.5.3
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
@@ -16,6 +16,3 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     broom \
     stringr \
     here \
-    rmarkdown \
-    knitr
-    
