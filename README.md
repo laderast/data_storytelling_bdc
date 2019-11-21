@@ -4,7 +4,7 @@ Learn how to customize ggplots to make figures that communicate more effectively
 
 Concepts used in this workshop are gratefully adapted from Cole Nussbaum Knaflic's wonderful book [Storytelling With Data](http://www.storytellingwithdata.com/). 
 
-TV Show Data set is courtesy of Tidy Tuesday. Give them some love!
+TV Show Data set is courtesy of [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday). Give them some love!
 
 # To Run this Workshop
 
@@ -20,7 +20,24 @@ Note: I am still debugging the binder. To be fixed soon.
 
 # Intended Audience
 
-Beginners and Intermediate students of R. A student should understand the first two chapters of the [R-Bootcamp](http://r-bootcamp.netlify.com).
+Beginners and Intermediate students of R. A student should understand the first two chapters of the [R-Bootcamp](http://r-bootcamp.netlify.com). Students should be able to understand the following bit of code:
+
+```
+my_plot <- 
+  ggplot(tv_shows) +
+  aes(x = seasonNumber, 
+      y = av_rating, 
+      group = title, 
+      color = title) + 
+  geom_line()
+```
+
+They should be able to answer the following questions:
+
+1) What does typing `my_plot` do after we run the code?
+2) What is the name of the dataset we're using?
+3) What variable is mapped to the x axis? What variable is mapped to color?
+4) What does the `geom_line()` part of the code do?
 
 Also see Kevin Watanabe Smith's Workshop for a gentle introduction to ggplot2: https://github.com/WatanabeSmith/BioDataIntroDataVizSlides
 
@@ -36,7 +53,15 @@ This workshop is split into five different RMarkdown notebooks:
 
 # Teaching Notes
 
-To be added after the workshop is given.
+This workshop is meant to be empowering to beginners who have a basic familiarity with ggplot and R. The dataset was carefully filtered and chosen to be appealing to a wide variety of users in the US (I believe similar data could be harvested for any country in order to adapt the workshop for them).
+
+The slides are meant to introduce the basic concepts of each section of the workshop. The transition to the notebooks is noted in each slide. Having both the slides and the RStudio teaching instance in separate windows in your browser is ideal. Be explicit when you're moving from one to the other.
+
+Encourage your students to share their customized plots and talk through their reasoning. We used a channel in the BioData Club Slack workspace which allowed students to cut and paste their code to share. The `03-annotation` section was especially fun and engaging when people added their annotations about different seasons of TV shows.
+
+There is a lot of time built into the lesson plan for sharing plots with others and discussing them. The social learning of sharing plots is important for students to learn how to apply these storytelling concepts.
+
+`05-highlighting-subsets.Rmd` is not currently incorporated in the slides, but is available for slightly advanced students to work through. There are pre-requisites for this section that are noted at the beginning of the notebook.
 
 # Contributors
 
