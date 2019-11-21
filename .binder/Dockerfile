@@ -1,5 +1,6 @@
 FROM rocker/binder:3.5.3
 
+USER root
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
   libcairo2-dev \
