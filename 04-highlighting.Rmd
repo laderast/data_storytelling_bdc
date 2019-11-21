@@ -15,10 +15,10 @@ source(here("R/init.R"))
 
 Remember our original plot mapped color to `title`. There's also a variable called `status` in our data. `status` has two different values: a tv show can be a `riser` (positive trend in ratings), or be a `faller` (negative trend in ratings).
 
-Let's modify the plot to use this variable to `color` our lines:
+Let's modify the plot to use this variable to `color` our lines. We'll save it as a different object, this time called `my_new_plot`.
 
 ```{r}
-my_plot <- 
+my_new_plot <- 
   ggplot(tv_shows) + 
     aes(x = seasonNumber, 
         y= av_rating, 
@@ -26,7 +26,7 @@ my_plot <-
         color = status) +   #changing `color` to map to `status` here
     geom_line()
 
-my_plot
+my_new_plot
 ```
 
 ## Highlighting part of your data
@@ -36,7 +36,7 @@ What if we only want to highlight one group in the data? In this case, maybe we 
 We can actually manually color our traces by using `scale_color_manual()`. This lets us manually map our values in our variable (`riser` and `faller`) to colors: (`blue` and `grey`).
 
 ```{r}
-my_plot + 
+my_new_plot + 
   scale_color_manual(values=c("riser"="blue",
                               "faller"="grey")) +
   theme_minimal()
