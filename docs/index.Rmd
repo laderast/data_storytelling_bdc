@@ -285,3 +285,11 @@ http://bit.ly/st_survey
 `r icon::fa("envelope")` laderast at ohsu.edu <br>
 `r icon::fa("link")` https://laderast.github.io <br>
 `r icon::fa("twitter")` [tladeras](https://twitter.com/tladeras)
+
+
+```{r}
+add_stuff <- function(my_plot) {
+  
+  my_plot +  
+}
+```

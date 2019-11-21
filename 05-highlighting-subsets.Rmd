@@ -151,7 +151,9 @@ ggplot(tv_shows) +
   labs(title = stringr::str_wrap("Only 'Breaking Bad' was high in both ratings and share")) +
   geom_hline(yintercept = 9, lty=3) +
   geom_vline(xintercept = 8.5, lty = 3) +
-  annotate("text", x=9.1, y=15, label="Breaking\nBad") +
+  #annotate("text", x=9.1, y=15, label="Breaking\nBad") +
+  annotate("text", x=9.1, y=18, label= "High Share\nHigh Rating") +
+  annotate("text", x=6.5, y=5, label = "Low Share\nLow Rating") +
   theme_minimal()
 
 ```
