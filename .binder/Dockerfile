@@ -1,6 +1,8 @@
 FROM rocker/binder:3.5.3
 
 USER root
+COPY . ${HOME}
+RUN chown -R ${NB_USER} ${HOME}
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
   libcairo2-dev \
@@ -16,3 +18,5 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     DT \
     stringr \
     here \
+
+USER ${NB_USER}
