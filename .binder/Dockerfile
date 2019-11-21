@@ -17,6 +17,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     --deps TRUE \
     DT \
     stringr \
-    here \
+    here 
 
 USER ${NB_USER}
