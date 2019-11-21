@@ -2,7 +2,7 @@
 
 Learn how to customize ggplots to make figures that communicate more effectively. 
 
-Concepts used in this workshop are gratefully adapted from Cole Nussbaum Knaffic's wonderful book [Storytelling With Data](http://www.storytellingwithdata.com/). 
+Concepts used in this workshop are gratefully adapted from Cole Nussbaum Knaflic's wonderful book [Storytelling With Data](http://www.storytellingwithdata.com/). 
 
 TV Show Data set is courtesy of Tidy Tuesday. Give them some love!
 
