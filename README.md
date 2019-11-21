@@ -10,6 +10,8 @@ TV Show Data set is courtesy of [Tidy Tuesday](https://github.com/rfordatascienc
 
 Slides are available here: https://laderast.github.io/data_storytelling_bdc/ They are made to introduce the data storytelling concepts for each section.
 
+The slides are meant to introduce the basic concepts of each section of the workshop. The transition to the notebooks is noted in each slide. Having both the slides and the RStudio teaching instance in separate windows in your browser is ideal. Be explicit when you're moving from one to the other.
+
 Have your students click on the binder link below to open up a Binder version of RStudio. Then open up `01-starting-out.Rmd` and start playing around with the notebooks.
 
 Note: I am still debugging the binder. To be fixed soon.
@@ -34,7 +36,7 @@ my_plot <-
 
 They should be able to answer the following questions:
 
-1) What does typing `my_plot` do after we run the code?
+1) What does typing `my_plot` do after we run the above code?
 2) What is the name of the dataset we're using?
 3) What variable is mapped to the x axis? What variable is mapped to color?
 4) What does the `geom_line()` part of the code do?
@@ -54,8 +56,6 @@ This workshop is split into five different RMarkdown notebooks:
 # Teaching Notes
 
 This workshop is meant to be empowering to beginners who have a basic familiarity with ggplot and R. The dataset was carefully filtered and chosen to be appealing to a wide variety of users in the US (I believe similar data could be harvested for any country in order to adapt the workshop for them).
-
-The slides are meant to introduce the basic concepts of each section of the workshop. The transition to the notebooks is noted in each slide. Having both the slides and the RStudio teaching instance in separate windows in your browser is ideal. Be explicit when you're moving from one to the other.
 
 Encourage your students to share their customized plots and talk through their reasoning. We used a channel in the BioData Club Slack workspace which allowed students to cut and paste their code to share. The `03-annotation` section was especially fun and engaging when people added their annotations about different seasons of TV shows.
 
