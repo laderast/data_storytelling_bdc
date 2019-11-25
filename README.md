@@ -14,7 +14,7 @@ The slides are meant to introduce the basic concepts of each section of the work
 
 Have your students click on the binder link below to open up a Binder version of RStudio. Then open up `01-starting-out.Rmd` and start playing around with the notebooks.
 
-Note: I am still debugging the binder. To be fixed soon.
+Note: Binder link is now fixed and will run!
 
 <!-- badges: start -->
 [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/laderast/data_storytelling_bdc/master?urlpath=rstudio)
