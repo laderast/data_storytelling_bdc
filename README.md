@@ -8,7 +8,7 @@ TV Show Data set is courtesy of [Tidy Tuesday](https://github.com/rfordatascienc
 
 # To Run this Workshop
 
-Slides are available here: https://laderast.github.io/data_storytelling_bdc/ They are made to introduce the data storytelling concepts for each section.
+Slides are available here: https://laderast.github.io/data_storytelling_bdc/ 
 
 The slides are meant to introduce the basic concepts of each section of the workshop. The transition to the notebooks is noted in each slide. Having both the slides and the RStudio teaching instance in separate windows in your browser is ideal. Be explicit when you're moving from one to the other.
 
